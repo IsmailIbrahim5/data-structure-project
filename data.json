@@ -1,0 +1,283 @@
+{
+    "admins": [
+        {
+            "password": "adminpass",
+            "username": "Admin1"
+        }
+    ],
+    "courses": [
+        {
+            "code": "CS101",
+            "credit_hours": 3.0,
+            "instractor_name": "Dr. Ahmed",
+            "name": "Introduction to Computer Science",
+            "prerequisites": [],
+            "semester": "Fall 2024",
+            "syllabus": "Computing basics, programming, and problem-solving."
+        },
+        {
+            "code": "CS201",
+            "credit_hours": 3.0,
+            "instractor_name": "Prof. Mona",
+            "name": "Data Structures",
+            "prerequisites": [
+                "CS101"
+            ],
+            "semester": "Spring 2025",
+            "syllabus": "Stacks, queues, trees, graphs, sorting algorithms."
+        },
+        {
+            "code": "CS301",
+            "credit_hours": 3.0,
+            "instractor_name": "Dr. Tarek",
+            "name": "Algorithms",
+            "prerequisites": [
+                "CS201"
+            ],
+            "semester": "Fall 2025",
+            "syllabus": "Greedy algorithms, divide & conquer, dynamic programming."
+        },
+        {
+            "code": "CS210",
+            "credit_hours": 3.0,
+            "instractor_name": "Dr. Yasmine",
+            "name": "Object-Oriented Programming",
+            "prerequisites": [
+                "CS101"
+            ],
+            "semester": "Spring 2025",
+            "syllabus": "Classes, inheritance, polymorphism, encapsulation."
+        },
+        {
+            "code": "CS310",
+            "credit_hours": 3.0,
+            "instractor_name": "Dr. Khaled",
+            "name": "Operating Systems",
+            "prerequisites": [
+                "CS201"
+            ],
+            "semester": "Fall 2025",
+            "syllabus": "Processes, threads, memory management, scheduling."
+        },
+        {
+            "code": "CS320",
+            "credit_hours": 3.0,
+            "instractor_name": "Prof. Heba",
+            "name": "Computer Networks",
+            "prerequisites": [
+                "CS201"
+            ],
+            "semester": "Spring 2026",
+            "syllabus": "TCP/IP, routing, network layers, protocols."
+        },
+        {
+            "code": "CS330",
+            "credit_hours": 3.0,
+            "instractor_name": "Dr. Osama",
+            "name": "Database Systems",
+            "prerequisites": [
+                "CS201"
+            ],
+            "semester": "Spring 2026",
+            "syllabus": "SQL, relational models, normalization, transactions."
+        },
+        {
+            "code": "CS340",
+            "credit_hours": 3.0,
+            "instractor_name": "Dr. Farah",
+            "name": "Software Engineering",
+            "prerequisites": [
+                "CS210"
+            ],
+            "semester": "Fall 2026",
+            "syllabus": "SDLC, UML, agile, testing, requirements engineering."
+        },
+        {
+            "code": "MA101",
+            "credit_hours": 3.0,
+            "instractor_name": "Dr. Hassan",
+            "name": "Calculus I",
+            "prerequisites": [],
+            "semester": "Fall 2024",
+            "syllabus": "Limits, derivatives, integration techniques."
+        },
+        {
+            "code": "MA102",
+            "credit_hours": 3.0,
+            "instractor_name": "Dr. Hala",
+            "name": "Calculus II",
+            "prerequisites": [
+                "MA101"
+            ],
+            "semester": "Spring 2025",
+            "syllabus": "Series, multivariable calculus, differential equations."
+        },
+        {
+            "code": "PH101",
+            "credit_hours": 3.0,
+            "instractor_name": "Dr. Ayman",
+            "name": "Physics I",
+            "prerequisites": [],
+            "semester": "Fall 2024",
+            "syllabus": "Mechanics, kinematics, Newton's laws."
+        },
+        {
+            "code": "PH102",
+            "credit_hours": 3.0,
+            "instractor_name": "Dr. Nesma",
+            "name": "Physics II",
+            "prerequisites": [
+                "PH101"
+            ],
+            "semester": "Spring 2025",
+            "syllabus": "Electricity, magnetism, waves, optics."
+        },
+        {
+            "code": "EE101",
+            "credit_hours": 3.0,
+            "instractor_name": "Prof. Sherif",
+            "name": "Intro to Electrical Engineering",
+            "prerequisites": [],
+            "semester": "Fall 2024",
+            "syllabus": "Circuits, Ohm’s law, digital logic."
+        },
+        {
+            "code": "GE101",
+            "credit_hours": 2.0,
+            "instractor_name": "Dr. Tamer",
+            "name": "Engineering Drawing",
+            "prerequisites": [],
+            "semester": "Fall 2024",
+            "syllabus": "Orthographic projections, 3D modeling basics."
+        },
+        {
+            "code": "EC101",
+            "credit_hours": 2.0,
+            "instractor_name": "Prof. Salma",
+            "name": "Introduction to Economics",
+            "prerequisites": [],
+            "semester": "Fall 2024",
+            "syllabus": "Micro and macroeconomics fundamentals."
+        },
+        {
+            "code": "HU101",
+            "credit_hours": 2.0,
+            "instractor_name": "Dr. Nabil",
+            "name": "English Communication Skills",
+            "prerequisites": [],
+            "semester": "Fall 2024",
+            "syllabus": "Academic writing, presentation, communication."
+        },
+        {
+            "code": "HU201",
+            "credit_hours": 2.0,
+            "instractor_name": "Dr. Laila",
+            "name": "Critical Thinking",
+            "prerequisites": [
+                "HU101"
+            ],
+            "semester": "Spring 2025",
+            "syllabus": "Logic, reasoning, argument evaluation."
+        },
+        {
+            "code": "CS350",
+            "credit_hours": 3.0,
+            "instractor_name": "Dr. Nour",
+            "name": "Web Development",
+            "prerequisites": [
+                "CS210"
+            ],
+            "semester": "Spring 2026",
+            "syllabus": "HTML, CSS, JavaScript, backend basics."
+        },
+        {
+            "code": "CS360",
+            "credit_hours": 3.0,
+            "instractor_name": "Dr. Walid",
+            "name": "Mobile App Development",
+            "prerequisites": [
+                "CS350"
+            ],
+            "semester": "Fall 2026",
+            "syllabus": "Flutter, React Native, UI/UX for mobile."
+        },
+        {
+            "code": "CS370",
+            "credit_hours": 3.0,
+            "instractor_name": "Dr. Zeinab",
+            "name": "Machine Learning",
+            "prerequisites": [
+                "CS301",
+                "MA102"
+            ],
+            "semester": "Spring 2027",
+            "syllabus": "Supervised learning, neural networks, clustering."
+        }
+    ],
+    "students": [
+        {
+            "completed_courses": [
+                "MA101",
+                "CS101",
+                "GE101",
+                "PH101",
+                "HU101"
+            ],
+            "grades": {
+                "CS101": 95,
+                "GE101": 88,
+                "HU101": 78,
+                "MA101": 85,
+                "PH101": 92
+            },
+            "id": "S001",
+            "name": "Ali Hassan",
+            "password": "pass123",
+            "registered_courses": [
+                "MA102",
+                "CS201",
+                "HU201",
+                "PH102",
+                "EC101"
+            ]
+        },
+        {
+            "completed_courses": [
+                "MA101",
+                "CS101",
+                "PH101",
+                "HU101",
+                "EC101"
+            ],
+            "grades": {
+                "CS101": 88,
+                "EC101": 84,
+                "HU101": 86,
+                "MA101": 90,
+                "PH101": 82
+            },
+            "id": "S002",
+            "name": "Sara Youssef",
+            "password": "secure456",
+            "registered_courses": [
+                "MA102",
+                "CS201",
+                "CS210",
+                "PH102",
+                "HU201",
+                "MA101"
+            ]
+        },
+        {
+            "completed_courses": [],
+            "grades": {},
+            "id": "S003",
+            "name": "nagah",
+            "password": "123",
+            "registered_courses": [
+                "GE101",
+                "MA101"
+            ]
+        }
+    ]
+}
