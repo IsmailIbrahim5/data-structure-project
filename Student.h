@@ -45,11 +45,11 @@ public:
     bool removeGrade(const string& course);
 
     void studentMenu();
-    void signUpStudent();
-    void loginStudent();
+    static string signUpStudent(string id, string name, string password);
+    static string loginStudent(string id, string password);
     void viewCourses();
     void searchCourse(string code);
-    void RegisterForCourse(string code);
+    string RegisterForCourse(string code);
     void viewGrades();
     void showPrerequisites();
     void showPrerequisitesForOneCourse(string code);

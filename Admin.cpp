@@ -4,79 +4,45 @@
 
 Admin::Admin() {}
 
-Admin::Admin(string username, string password) {
+Admin::Admin(string username,string name, string password) {
    this->username = username;
+   this->name = name;
    this->password = password;
 }
 
 // Getters implementation
 string Admin::getUsername() const { return username; }
+string Admin::getName() const { return name; }
 
 string Admin::getPassword() const { return password; }
 
 // Setters implementation
 void Admin::setUsername(const string &username) { this->username = username; }
+void Admin::setName(const string &name) { this->name = name; }
 
 void Admin::setPassword(const string &password) { this->password = password; }
 
-void Admin::signUpAdmin() {
-   string username, password;
-   cout << "Enter Admin Username: ";
-   cin >> username;
+string Admin::signUpAdmin(string username, string name, string password) {
 
    if (admins.find(username) != admins.end()) {
-      cout << "Admin already exists.\n";
-      return;
+      return "Admin already exists.";
    }
 
-   cout << "Enter Password: ";
-   cin >> password;
-   Admin admin(username, password);
+   Admin admin(username,name ,password);
    admins[username] = admin;
-   cout << "Admin registered successfully.\n";
+   return "";
 }
 
-void Admin::loginAdmin() {
-   string username, password;
-   int input = 0;
-   while (input < 3) {
-      cout << "Enter Admin Username: ";
-      cin >> username;
-      cout << "Enter Admin Password: ";
-      password = "";
-      char ch;
-      while ((ch = _getch()) != '\n') {
-         if (ch == 127 || ch == '\b') {
-            if (!password.empty()) {
-               password.pop_back();
-               cout << "\b \b";
-            }
-         } else {
-            password += ch;
-            cout << '*';
-         }
-         cout.flush();
-      }
-      cout << endl;
-
+string Admin::loginAdmin(string username, string password) {
       if (admins.find(username) == admins.end()) {
-         cout << "Admin doesn't exists.\n";
-         return;
+         return "Admin doesn't exists.";
       } else {
          auto it = admins.find(username);
          if (it->second.getPassword() != password) {
-            cout << "wrong Password \n";
-            input++;
-            if (input == 3) {
-               cout << "your tried three wrong Passwords\n";
-               return;
-            }
-            continue;
+            return "wrong Password ";
          } else {
-            cout << "Login Admin successfully\n";
-            return;
+            return "";
          }
-      }
    }
 }
 
@@ -103,14 +69,7 @@ void Admin::addPrerequisiteToCourse(const string &courseCode,
       cout << "The course is not found!" << endl;
       return;
    }
-
-   if (courses.find(prerequisiteCode) == courses.end()) {
-      cout << "The prerequisite course is not found!" << endl;
-      return;
-   }
-
    courses[courseCode].addPrerequisite(prerequisiteCode);
-   cout << "Prerequisite added successfully!" << endl;
 }
 
 void Admin::removePrerequisiteFromCourse(const string &courseCode,

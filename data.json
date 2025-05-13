@@ -3,6 +3,10 @@
         {
             "password": "adminpass",
             "username": "Admin1"
+        },
+        {
+            "password": "admin2",
+            "username": "Admin2"
         }
     ],
     "courses": [
@@ -234,11 +238,11 @@
             "name": "Ali Hassan",
             "password": "pass123",
             "registered_courses": [
-                "MA102",
-                "CS201",
-                "HU201",
-                "PH102",
-                "EC101"
+                "MA101",
+                "CS101",
+                "HU101",
+                "PH101",
+                "GE101"
             ]
         },
         {
@@ -277,6 +281,28 @@
             "registered_courses": [
                 "GE101",
                 "MA101"
+            ]
+        },
+        {
+            "completed_courses": [],
+            "grades": {
+                "CS340": 95,
+                "EC101": 45,
+                "EE101": 66,
+                "HU101": 0,
+                "PH101": 78
+            },
+            "id": "S005",
+            "name": "Ismail Ibrahim",
+            "password": "pass123",
+            "registered_courses": [
+                "CS340",
+                "MO101",
+                "PH101",
+                "EE101",
+                "GE101",
+                "EC101",
+                "HU101"
             ]
         }
     ]

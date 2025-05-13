@@ -112,65 +112,24 @@ void Student::studentMenu() {
    }
 }
 
-void Student::signUpStudent() {
-   string id, name, password;
-   cout << "enter Student ID: ";
-   cin >> id;
+string Student::signUpStudent(string id, string name, string password) {
    if (students.find(id) != students.end()) {
-      cout << "Student already exists.\n";
-      return;
+      return "Student already exists.";
    }
-   cout << "enter Student Name: ";
-   cin.ignore();
-   getline(cin, name);
-   cout << "enter Student Password: ";
-   cin >> password;
    Student student(id, name, password);
    students[id] = student;
-   cout << "SignUp successfully\n";
-   student.studentMenu();
+   return "";
 }
 
-void Student::loginStudent() {
-   string id, password;
-   int input = 0;
-   while (input < 3) {
-      cout << "enter Student ID: ";
-      cin >> id;
-      cout << "enter Student password: ";
-      password = "";
-      char ch;
-      while ((ch = _getch()) != '\n') {
-         if (ch == 127 || ch == '\b') {
-            if (!password.empty()) {
-               password.pop_back();
-               cout << "\b \b";
-            }
-         } else {
-            password += ch;
-            cout << '*';
-         }
-         cout.flush();
-      }
-      cout << endl;
+string Student::loginStudent(string id, string password) {
       if (students.find(id) == students.end()) {
-         cout << "the Student doesn't exist.\n";
-         return;
+          return "the Student doesn't exist.";
       } else {
          auto it = students.find(id);
          if (it->second.getPassword() != password) {
-            cout << "wrong Password \n";
-            input++;
-            if (input == 3) {
-               cout << "your tried three wrong Passwords\n";
-               return;
-            }
-            continue;
+             return "wrong Password";
          } else {
-            cout << "Login Student successfully\n";
-            it->second.studentMenu();
-            return;
-         }
+            return "";
       }
    }
 }
@@ -205,15 +164,9 @@ void Student::searchCourse(string code) {
    }
 }
 
-void Student::RegisterForCourse(string code) {
+string Student::RegisterForCourse(string code) {
    if (getRegisteredCourses().find(code) != getRegisteredCourses().end()) {
-      cout << "You are already registered in this course!" << endl;
-      return;
-   }
-
-   if (courses.find(code) == courses.end()) {
-      cout << "Course not found!" << endl;
-      return;
+      return "You are already registered in this course!";
    }
 
    bool checkprerequisites = checkPrerequisites(code);
@@ -222,15 +175,10 @@ void Student::RegisterForCourse(string code) {
       this->addRegisteredCourse(code);
       this->setTermCreditHours(this->getTermCreditHours() -
                                courses[code].getCreditHours());
-      cout << "Successfully registered for course: " << courses[code].getName()
-           << endl;
+      return "";
    } else {
-      cout << "You can't be registered to this course. You either have to "
-              "complete "
-              "prerequisites first or don't have enough credit hours remaining!"
-           << endl;
+      return "You have to complete prerequisites first or you don't have enough credit hours!";
    }
-   goBack();
 }
 
 bool Student::checkPrerequisites(string code) {

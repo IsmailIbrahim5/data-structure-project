@@ -136,18 +136,27 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Admin.cpp" />
+    <ClCompile Include="AdminMenu.cpp" />
     <ClCompile Include="Common.cpp" />
     <ClCompile Include="Course.cpp" />
     <ClCompile Include="DataStructureProject.cpp" />
     <ClCompile Include="FileOperations.cpp" />
+    <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="Student.cpp" />
+    <ClCompile Include="StudentMenu.cpp" />
+    <ClCompile Include="WindowManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Admin.h" />
+    <ClInclude Include="AdminMenu.h" />
     <ClInclude Include="Common.h" />
+    <ClInclude Include="constants.h" />
     <ClInclude Include="Course.h" />
     <ClInclude Include="FileOperations.h" />
+    <ClInclude Include="MainMenu.h" />
     <ClInclude Include="Student.h" />
+    <ClInclude Include="StudentMenu.h" />
+    <ClInclude Include="WindowManager.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="data.json" />
