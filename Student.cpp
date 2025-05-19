@@ -3,12 +3,12 @@
 
 Student::Student() {
    this->semester = 1;
-   this->termCreditHours = 18;
+   this->termCreditHours = 30;
 }
 
 Student::Student(string id, string name, string password) {
    this->semester = 1;
-   this->termCreditHours = 18;
+   this->termCreditHours = 30;
    this->id = id;
    this->name = name;
    this->password = password;
@@ -35,6 +35,15 @@ const unordered_set<string> &Student::getRegisteredCourses() const {
 
 const unordered_map<string, int> &Student::getGrades() const { return grades; }
 
+int Student::getCourseGrade(const string& courseCode) const
+{
+    auto grade = grades.find(courseCode);
+    if (grade != grades.end()) {
+        return grade->second;
+    }
+    return -1;
+}
+
 // Setters implementation
 void Student::setSemester(int semester) { this->semester = semester; }
 
@@ -55,12 +64,28 @@ bool Student::removeCompletedCourse(const string &code) {
    return completedCourses.erase(code) > 0;
 }
 
+bool Student::isCompleatedCourse(string code)
+{
+    if (this->completedCourses.find(code) == this->completedCourses.end())
+        return false;
+    else
+        return true;
+}
+
 void Student::addRegisteredCourse(const string &code) {
    registeredCourses.insert(code);
 }
 
 bool Student::removeRegisteredCourse(const string &code) {
    return registeredCourses.erase(code) > 0;
+}
+
+bool Student::isRegisteredCourse(string code)
+{
+    if (this->registeredCourses.find(code) == this->registeredCourses.end())
+        return false;
+    else
+        return true;
 }
 
 void Student::setGrade(const string &course, int grade) {
@@ -170,6 +195,8 @@ string Student::RegisterForCourse(string code) {
    }
 
    bool checkprerequisites = checkPrerequisites(code);
+   if (!checkprerequisites)
+       return "You have to complete prerequisites first!";
    if (checkprerequisites &&
        this->getTermCreditHours() >= courses[code].getCreditHours()) {
       this->addRegisteredCourse(code);
@@ -177,7 +204,7 @@ string Student::RegisterForCourse(string code) {
                                courses[code].getCreditHours());
       return "";
    } else {
-      return "You have to complete prerequisites first or you don't have enough credit hours!";
+      return "You don't have enough credit hours!";
    }
 }
 
