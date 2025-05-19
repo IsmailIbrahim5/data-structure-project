@@ -26,6 +26,7 @@ public:
     const unordered_set<string>& getCompletedCourses() const;
     const unordered_set<string>& getRegisteredCourses() const;
     const unordered_map<string, int>& getGrades() const;
+    int getCourseGrade(const string& courseCode) const;
 
     // Setters
     void setSemester(int semester);
@@ -37,9 +38,12 @@ public:
     // Methods to modify collections
     void addCompletedCourse(const string& code);
     bool removeCompletedCourse(const string& code);
+    bool isCompleatedCourse(string code);
 
     void addRegisteredCourse(const string& code);
     bool removeRegisteredCourse(const string& code);
+    bool isRegisteredCourse(string code);
+
 
     void setGrade(const string& course, int grade);
     bool removeGrade(const string& course);
@@ -60,4 +64,3 @@ public:
     double grade_to_gpa_point(int grade);
     double calculate_gpa();
 };
-
