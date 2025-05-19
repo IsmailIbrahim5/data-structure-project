@@ -81,7 +81,7 @@ void Admin::removePrerequisiteFromCourse(const string &courseCode,
 
    bool success = courses[courseCode].removePrerequisite(prerequisiteCode);
    if (!success) {
-      cout << "This prerequisite wasn't found!" << endl;
+      cout << "This removePrerequisite function does not work!!!" << endl;
    } else {
       cout << "Prerequisite removed successfully!" << endl;
    }
@@ -138,16 +138,78 @@ void Admin::uploadGradesFromCsv(string &csvFile) {
             student.setGrade(courseCode, grade);
             student.addCompletedCourse(courseCode);
          }
-
-         double gpa = student.calculate_gpa();
-         if (gpa >= 3)
-            student.setTermCreditHours(21);
-         else if (gpa >= 2)
-            student.setTermCreditHours(18);
-         else
-            student.setTermCreditHours(15);
       }
    }
-
    cout << "Grades updated from CSV.\n";
+}
+
+void Admin::setGradeToStudent(string id, string code, int grade)
+{
+    if (students.find(id) == students.end())
+        return;// we should add worning statement here
+    else
+    {
+        Student& student = students[id];
+        if (courses.find(code) != courses.end() && student.isRegisteredCourse(code))
+            student.setGrade(code, grade);
+        else
+            return;// we should add worning statement here
+        if(student.getCourseGrade(code) >= 60)
+            student.addCompletedCourse(code);
+        bool check = student.removeRegisteredCourse(code);
+        if (!check)
+            cout << "Remove function doesn't work!" << endl;// for test you can delete it and make it worning 
+        if (student.getRegisteredCourses().size() == 0)
+        {
+            double gpa = student.calculate_gpa();
+            if (gpa >= 3)
+                student.setTermCreditHours(21);
+            else if (gpa >= 2)
+                student.setTermCreditHours(18);
+            else
+                student.setTermCreditHours(15);
+        }
+    }
+}
+void Admin::save_students_grades_to_csv(
+    const std::string& filename,
+    const std::unordered_map<std::string, Student>& students) {
+    std::ofstream out(filename);
+    if (!out.is_open()) {
+        std::cerr << "Failed to open file for writing: " << filename << "\n";
+        return;
+    }
+
+    // 1. Collect all course codes that appear in any student's grades
+    std::unordered_set<std::string> allCourses;
+    for (const auto& [id, student] : students) {
+        for (const auto& [course, _] : student.getGrades()) {
+            allCourses.insert(course);
+        }
+    }
+
+    // 2. Write header row: id,course1,course2,...
+    out << "id";
+    for (const auto& course : allCourses) {
+        out << "," << course;
+    }
+    out << "\n";
+
+    // 3. Write each student row
+    for (const auto& [id, student] : students) {
+        out << id;
+        for (const auto& course : allCourses) {
+            int checkIfGradeIsFounded = student.getCourseGrade(course);
+            if (checkIfGradeIsFounded != -1) {
+                out << "," << checkIfGradeIsFounded;
+            }
+            else {
+                out << ","; // blank for missing grade
+            }
+        }
+        out << "\n";
+    }
+
+    out.close();
+    std::cout << "Student grades exported to " << filename << "\n";
 }
