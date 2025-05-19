@@ -3,12 +3,12 @@
 
 Student::Student() {
    this->semester = 1;
-   this->termCreditHours = 30;
+   this->termCreditHours = 18;
 }
 
 Student::Student(string id, string name, string password) {
    this->semester = 1;
-   this->termCreditHours = 30;
+   this->termCreditHours = 18;
    this->id = id;
    this->name = name;
    this->password = password;
