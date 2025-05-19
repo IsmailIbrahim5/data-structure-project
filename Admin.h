@@ -28,6 +28,8 @@ public:
         string syllabus, float credit_hours);
     static void addPrerequisiteToCourse(const string& courseCode, const string& prerequisiteCode);
     static void removePrerequisiteFromCourse(const string& courseCode, const string& prerequisiteCode);
-    void uploadGradesFromCsv(string& filePath);
+    void uploadGradesFromCsv(string& filePath); 
+    void setGradeToStudent(string id, string code, int grade);
+    void save_students_grades_to_csv(const std::string& filename, const std::unordered_map<std::string, Student>& students);
 };
 
