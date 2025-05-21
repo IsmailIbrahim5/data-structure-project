@@ -20,6 +20,17 @@
             "syllabus": "Computing basics, programming, and problem-solving."
         },
         {
+            "code": "CS310",
+            "credit_hours": 3.0,
+            "instractor_name": "Dr. Khaled",
+            "name": "Operating Systems",
+            "prerequisites": [
+                "CS201"
+            ],
+            "semester": "Fall 2025",
+            "syllabus": "Processes, threads, memory management, scheduling."
+        },
+        {
             "code": "CS201",
             "credit_hours": 3.0,
             "instractor_name": "Prof. Mona",
@@ -42,6 +53,28 @@
             "syllabus": "Greedy algorithms, divide & conquer, dynamic programming."
         },
         {
+            "code": "CS330",
+            "credit_hours": 3.0,
+            "instractor_name": "Dr. Osama",
+            "name": "Database Systems",
+            "prerequisites": [
+                "CS201"
+            ],
+            "semester": "Spring 2026",
+            "syllabus": "SQL, relational models, normalization, transactions."
+        },
+        {
+            "code": "PH102",
+            "credit_hours": 3.0,
+            "instractor_name": "Dr. Nesma",
+            "name": "Physics II",
+            "prerequisites": [
+                "PH101"
+            ],
+            "semester": "Spring 2025",
+            "syllabus": "Electricity, magnetism, waves, optics."
+        },
+        {
             "code": "CS210",
             "credit_hours": 3.0,
             "instractor_name": "Dr. Yasmine",
@@ -53,17 +86,6 @@
             "syllabus": "Classes, inheritance, polymorphism, encapsulation."
         },
         {
-            "code": "CS310",
-            "credit_hours": 3.0,
-            "instractor_name": "Dr. Khaled",
-            "name": "Operating Systems",
-            "prerequisites": [
-                "CS201"
-            ],
-            "semester": "Fall 2025",
-            "syllabus": "Processes, threads, memory management, scheduling."
-        },
-        {
             "code": "CS320",
             "credit_hours": 3.0,
             "instractor_name": "Prof. Heba",
@@ -73,17 +95,6 @@
             ],
             "semester": "Spring 2026",
             "syllabus": "TCP/IP, routing, network layers, protocols."
-        },
-        {
-            "code": "CS330",
-            "credit_hours": 3.0,
-            "instractor_name": "Dr. Osama",
-            "name": "Database Systems",
-            "prerequisites": [
-                "CS201"
-            ],
-            "semester": "Spring 2026",
-            "syllabus": "SQL, relational models, normalization, transactions."
         },
         {
             "code": "CS340",
@@ -124,17 +135,6 @@
             "prerequisites": [],
             "semester": "Fall 2024",
             "syllabus": "Mechanics, kinematics, Newton's laws."
-        },
-        {
-            "code": "PH102",
-            "credit_hours": 3.0,
-            "instractor_name": "Dr. Nesma",
-            "name": "Physics II",
-            "prerequisites": [
-                "PH101"
-            ],
-            "semester": "Spring 2025",
-            "syllabus": "Electricity, magnetism, waves, optics."
         },
         {
             "code": "EE101",
@@ -216,6 +216,15 @@
             ],
             "semester": "Spring 2027",
             "syllabus": "Supervised learning, neural networks, clustering."
+        },
+        {
+            "code": "CS005",
+            "credit_hours": 1.0,
+            "instractor_name": "Dr. Mohsen",
+            "name": "How to become innovative",
+            "prerequisites": [],
+            "semester": "\u0001",
+            "syllabus": "How to become and innovative and creative person"
         }
     ],
     "students": [
@@ -284,26 +293,40 @@
             ]
         },
         {
-            "completed_courses": [],
+            "completed_courses": [
+                "MA101",
+                "GE101",
+                "EC101",
+                "HU101",
+                "PH101",
+                "CS340",
+                "EE101"
+            ],
             "grades": {
                 "CS340": 95,
                 "EC101": 45,
                 "EE101": 66,
+                "GE101": 754,
                 "HU101": 0,
-                "PH101": 78
+                "MA101": 55,
+                "PH101": 85
             },
             "id": "S005",
             "name": "Ismail Ibrahim",
             "password": "pass123",
             "registered_courses": [
-                "CS340",
                 "MO101",
-                "PH101",
-                "EE101",
-                "GE101",
-                "EC101",
-                "HU101"
+                "HU101",
+                "CS101"
             ]
+        },
+        {
+            "completed_courses": [],
+            "grades": {},
+            "id": "S006",
+            "name": "Mohsen",
+            "password": "pass123",
+            "registered_courses": []
         }
     ]
 }

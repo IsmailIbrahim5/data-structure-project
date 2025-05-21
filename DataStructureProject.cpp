@@ -13,6 +13,7 @@ int main() {
 	load_students_from_file("data.json");
 	load_admins_from_file("data.json");
 	loadCoursesFromFile("data.json");
+    load_student_grades_from_csv("grades.csv");
     RenderWindow window(sf::VideoMode({ 1280, 800 }), "Course Registiration", sf::Style::Close);
     Image image("resources/images/app_icon.png");
     window.setIcon(image);
@@ -58,6 +59,7 @@ int main() {
     }
 
 	save_students_to_file("data.json");
-	save_admins_to_file("data.json");
-
+    save_admins_to_file("data.json");
+    saveCourseToFile("data.json");
+    save_students_grades_to_csv("grades.csv");
 }

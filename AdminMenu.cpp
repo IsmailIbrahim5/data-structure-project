@@ -705,11 +705,16 @@ void AdminMenu::drawModifyGrade(RenderWindow& window) {
 
     if (Mouse::isButtonPressed(Mouse::Button::Left) && !WindowManager::click_lock) {
         Vector2f mousePos = static_cast<Vector2f>(Mouse::getPosition(window));
-        if (backButton.getGlobalBounds().contains(mousePos) || doneButton.getGlobalBounds().contains(mousePos)) {
+        if (doneButton.getGlobalBounds().contains(mousePos)) {
 
             if (!gradeInput.empty()) {
-                selectedStudent->setGrade(selectedCourse->getCode(), stoi(gradeInput));
+                Admin::setGradeToStudent(selectedStudent->getId(), selectedCourse->getCode(), stoi(gradeInput));
             }
+            selectedCourse = nullptr;
+            gradeInput.clear();
+            WindowManager::shownWindow = ShownWindow::ChooseCourse;
+            WindowManager::click_lock = true;
+        }if (backButton.getGlobalBounds().contains(mousePos)) {
             selectedCourse = nullptr;
             gradeInput.clear();
             WindowManager::shownWindow = ShownWindow::ChooseCourse;

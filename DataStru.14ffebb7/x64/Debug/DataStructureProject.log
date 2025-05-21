@@ -1,9 +1,1 @@
-﻿  DataStructureProject.cpp
-C:\Users\Ismae\Documents\SFML-3.0.0\include\SFML\System\Exception.hpp(41,47): warning C4275: non dll-interface class 'std::runtime_error' used as base for dll-interface class 'sf::Exception'
-  (compiling source file 'DataStructureProject.cpp')
-      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\stdexcept(100,19):
-      see declaration of 'std::runtime_error'
-      C:\Users\Ismae\Documents\SFML-3.0.0\include\SFML\System\Exception.hpp(41,23):
-      see declaration of 'sf::Exception'
-  
-  DataStructureProject.vcxproj -> C:\Users\Ismae\source\repos\DataStructureProject\x64\Debug\DataStructureProject.exe
+﻿  DataStructureProject.vcxproj -> C:\Users\Ismae\source\repos\DataStructureProject\x64\Debug\DataStructureProject.exe

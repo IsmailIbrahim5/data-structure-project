@@ -206,3 +206,101 @@ void saveCourseToFile(const string& filename) {
     out << data.dump(4);
     out.close();
 }
+
+
+void load_student_grades_from_csv(const string& csvFile) {
+    ifstream file(csvFile);
+    if (!file.is_open()) {
+        cout << "Failed to open file: " << csvFile << endl;
+        return;
+    }
+
+    string line;
+    vector<string> headers;
+    unordered_map<string, unordered_map<string, int>> csvGrades;
+
+    // Parse headers
+    getline(file, line);
+    stringstream headerStream(line);
+    string col;
+    while (getline(headerStream, col, ',')) {
+        headers.push_back(col);
+    }
+
+    // Parse CSV data
+    while (getline(file, line)) {
+        stringstream ss(line);
+        string cell;
+        string student_id;
+        unordered_map<string, int> grades;
+
+        for (size_t i = 0; i < headers.size(); ++i) {
+            getline(ss, cell, ',');
+            if (i == 0)
+                student_id = cell;
+            else if (!cell.empty())
+                grades[headers[i]] = stoi(cell);
+        }
+        csvGrades[student_id] = grades;
+    }
+
+    // Update students map
+    for (const auto& student_id_and_grades : csvGrades) {
+        const string& student_id = student_id_and_grades.first;
+        const auto& grades_map = student_id_and_grades.second;
+
+        if (students.count(student_id)) {
+            Student& student = students[student_id];
+
+            for (const auto& courseGrades : grades_map) {
+                const string& courseCode = courseGrades.first;
+                int grade = courseGrades.second;
+
+                student.setGrade(courseCode, grade);
+                student.addCompletedCourse(courseCode);
+            }
+        }
+    }
+}
+
+
+void save_students_grades_to_csv(
+    const std::string& filename) {
+    std::ofstream out(filename);
+    if (!out.is_open()) {
+        std::cerr << "Failed to open file for writing: " << filename << "\n";
+        return;
+    }
+
+    // 1. Collect all course codes that appear in any student's grades
+    std::unordered_set<std::string> allCourses;
+    for (const auto& [id, student] : students) {
+        for (const auto& [course, _] : student.getGrades()) {
+            allCourses.insert(course);
+        }
+    }
+
+    // 2. Write header row: id,course1,course2,...
+    out << "id";
+    for (const auto& course : allCourses) {
+        out << "," << course;
+    }
+    out << "\n";
+
+    // 3. Write each student row
+    for (const auto& [id, student] : students) {
+        out << id;
+        for (const auto& course : allCourses) {
+            int checkIfGradeIsFounded = student.getCourseGrade(course);
+            if (checkIfGradeIsFounded != -1) {
+                out << "," << checkIfGradeIsFounded;
+            }
+            else {
+                out << ","; // blank for missing grade
+            }
+        }
+        out << "\n";
+    }
+
+    out.close();
+}
